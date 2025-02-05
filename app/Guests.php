@@ -3,16 +3,18 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Traits\WithArrays;
-
 class Guests
 {
-    use WithArrays;
-
     public function __construct(protected array $data) {
     }
 
-    public function nested(): string {
-        return $this->flatten($this->data);
+    public function nestedRaw(): string {
+        $results = "";
+
+        array_walk_recursive($this->data, function ($value, $key) use (&$results) {
+            $results .= "$key : $value \n";
+        });
+
+        return $results;
     }
 }

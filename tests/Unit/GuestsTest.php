@@ -11,13 +11,13 @@ class GuestsTest extends TestCase
         $data = require 'storage/fixtures/guests.php';
         $expectedOutput = require 'tests/storage/fixtures/guestsNested.php';
 
-        $results = (new Guests($data))->nested();
+        $results = (new Guests($data))->nestedRaw();
 
         $this->assertStringContainsString($expectedOutput, $results);
     }
 
     public function testNestedReturnsEmptyStringForEmptyArray(): void {
-        $results = (new Guests([]))->nested();
+        $results = (new Guests([]))->nestedRaw();
         $this->assertEmpty($results);
     }
 }
