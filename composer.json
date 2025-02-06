@@ -15,6 +15,7 @@
   "scripts": {
     "test": "./vendor/bin/phpunit tests --testdox -vvv",
     "sourcetoad:one": "@php questionOne.php",
-    "sourcetoad:two": "@php questionTwo.php"
+    "sourcetoad:two": "@php questionTwo.php",
+    "sourcetoad:three": "@php questionThree.php"
   }
 }
