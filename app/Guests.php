@@ -3,18 +3,17 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Traits\WithArrays;
+
 class Guests
 {
-    public function __construct(protected array $data) {
+    use WithArrays;
+
+    public function printNested(array $data): string {
+        return $this->flattenRaw($data);
     }
 
-    public function nestedRaw(): string {
-        $results = "";
-
-        array_walk_recursive($this->data, function ($value, $key) use (&$results) {
-            $results .= "$key : $value \n";
-        });
-
-        return $results;
+    public function sortRecursive(array $data, array $sortKeys): array {
+        return $this->sort($data, $sortKeys);
     }
 }
