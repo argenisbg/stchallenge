@@ -44,8 +44,4 @@ class Item
         $this->price = $price;
         return $this;
     }
-
-    public function getItemSubtotal() : float {
-        return $this->getPrice() * $this->getQuantity();
-    }
 }
