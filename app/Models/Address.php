@@ -47,7 +47,7 @@ class Address
         return $this;
     }
 
-    public function getZipCode(): string {
+    public function getZipCode(): ?string {
         return $this->zipCode;
     }
 

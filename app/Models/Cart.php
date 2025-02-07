@@ -61,10 +61,6 @@ class Cart
         return $this;
     }
 
-    public function getShippingRate(?string $zipCode): float {
-        return ShippingService::getRate($zipCode);
-    }
-
     public function getCartSubtotal(): float {
         $total = 0;
 
@@ -75,15 +71,17 @@ class Cart
         return $total;
     }
 
-    public function getCartSubtotalTax(): float {
+    public function getCartTax(): float {
         return $this->getCartSubtotal() * $this->getTaxRate();
     }
 
     public function getCartShipping(): float {
-        return $this->getShippingRate($this->shippingAddress->getZipCode());
+        return ShippingService::getRate(
+            $this->shippingAddress->getZipCode()
+        );
     }
 
-    public function getItemsTotalWithShippingAndTax(): float {
-        return $this->getCartSubtotal() + $this->getCartSubtotalTax() + $this->getCartShipping();
+    public function getCartTotal(): float {
+        return $this->getCartSubtotal() + $this->getCartTax() + $this->getCartShipping();
     }
 }
