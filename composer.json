@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "test": "./vendor/bin/phpunit tests --testdox -vvv",
+    "test": "./vendor/bin/phpunit tests --testdox",
     "sourcetoad:one": "@php questionOne.php",
     "sourcetoad:two": "@php questionTwo.php",
     "sourcetoad:three": "@php questionThree.php"
