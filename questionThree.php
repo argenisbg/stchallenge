@@ -49,7 +49,7 @@ print_r([
     'Shipping Address'   => $cart->getShippingAddress(),
     'Subtotal'           => $cart->getCartSubtotal(),
     'Shipping'      => $cart->getCartShipping(),
-    'Tax'           => $cart->getCartSubtotalTax(),
-    'Total'              => $cart->getItemsTotalWithShippingAndTax()
+    'Tax'           => $cart->getCartTax(),
+    'Total'              => $cart->getCartTotal()
 ]);
 
