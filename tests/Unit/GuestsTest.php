@@ -9,7 +9,7 @@ class GuestsTest extends TestCase
 {
     public function testPrintNested(): void {
         $data           = require 'storage/fixtures/guests.php';
-        $expectedOutput = require 'tests/storage/fixtures/guestsNested.php';
+        $expectedOutput = require 'tests/storage/fixtures/guestsSampleNested.php';
 
         $results = (new Guests())->printNested($data);
 
@@ -22,7 +22,8 @@ class GuestsTest extends TestCase
     }
 
     public function testSortRecursive(): void {
-        $data                          = require 'storage/fixtures/guests.php';
+        $data = require 'storage/fixtures/guests.php';
+
         $expectedFirstElementFirstName = 'Marco';
         $expectedFirstElementLastName  = 'Burns';
         $expectedLastElementFirstName  = 'Al ';
@@ -47,7 +48,8 @@ class GuestsTest extends TestCase
     }
 
     public function testSortRecursiveForRepeatedNameAndDifferentAccountId(): void {
-        $data                         = require 'tests/storage/fixtures/sortSampleData.php';
+        $data = require 'tests/storage/fixtures/sortSampleData.php';
+
         $expectedAccountId            = 1024;
         $expectedFirstName            = 'Han';
         $expectedMiddleName           = 'Star Wars';

@@ -5,23 +5,35 @@ namespace App\Traits;
 trait WithArrays
 {
     public function flatten(array $array): array {
-        $results = [];
+        $output = [];
 
-        array_walk_recursive($array, function($value, $key) use (&$results) {
-            $results += [$key => $value];
+        array_walk_recursive($array, function($value, $key) use (&$output) {
+            $output += [$key => $value];
         });
 
-        return $results;
+        return $output;
     }
 
-    public function flattenRaw(array $array): string {
-        $results = "";
+    public function flattenRaw(array $array, int $indent = 0): string {
+        $output = '';
+        foreach ($array as $key => $value) {
+            if (is_int($key)) {
+                $output.= $this->flattenRaw($value, $indent );
+                continue;
+            }
 
-        array_walk_recursive($array, function ($value, $key) use (&$results) {
-            $results .= "$key : $value \n";
-        });
+            $prefix = str_repeat("  ", $indent);
 
-        return $results;
+            if (is_array($value)) {
+                $output.= "$prefix$key:\n";
+                $output.= $this->flattenRaw($value, $indent + 1);
+                continue;
+            }
+
+            $output.= "$prefix$key: $value\n";
+        }
+
+        return $output;
     }
 
     public function sort(array &$array, array $sortKeys): array {
