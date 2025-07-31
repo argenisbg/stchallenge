@@ -43,13 +43,13 @@ $cart->setCustomer($customer)
      ->setItems([$itemOne, $itemTwo]);
 
 print_r([
-    'Customer Name'           => $cart->getCustomer()->getFullName(),
+    'Customer Name'      => $cart->getCustomer()->getFullName(),
     'Customer Addresses' => $cart->getCustomer()->getAddresses(),
     'Cart Items'         => $cart->getItems(),
     'Shipping Address'   => $cart->getShippingAddress(),
-    'Subtotal'           => $cart->getCartSubtotal(),
-    'Shipping'      => $cart->getCartShipping(),
-    'Tax'           => $cart->getCartTax(),
-    'Total'              => $cart->getCartTotal()
+    'Subtotal'           => $cart->getSubtotal(),
+    'Shipping'           => $cart->getShipping(),
+    'Tax'                => $cart->getTax(),
+    'Total'              => $cart->getTotal()
 ]);
 

@@ -41,7 +41,7 @@ class CartTest extends TestCase
         $cart = new Cart();
         $cart->setItems([$itemOne, $itemTwo, $itemThree]);
 
-        $this->assertEquals($expectedSubtotal, $cart->getCartSubtotal());
+        $this->assertEquals($expectedSubtotal, $cart->getSubtotal());
     }
 
     public function testGetCartTax(): void {
@@ -56,7 +56,7 @@ class CartTest extends TestCase
         $cart = new Cart();
         $cart->setItems([$itemOne]);
 
-        $this->assertEquals($expectedTaxRate, $cart->getCartTax());
+        $this->assertEquals($expectedTaxRate, $cart->getTax());
     }
 
     public function testGetCartShipping(): void {
@@ -69,7 +69,7 @@ class CartTest extends TestCase
         $cart = new Cart();
         $cart->setShippingAddress($address);
 
-        $this->assertEquals($expectedCartShipping, $cart->getCartShipping());
+        $this->assertEquals($expectedCartShipping, $cart->getShipping());
     }
 
     public function testGetCartTotal(): void {
@@ -102,6 +102,6 @@ class CartTest extends TestCase
         $cart->setShippingAddress($address)
              ->setItems([$itemOne, $itemTwo, $itemThree]);
 
-        $this->assertEquals($expectedTotalWithShippingAndTax, $cart->getCartTotal());
+        $this->assertEquals($expectedTotalWithShippingAndTax, $cart->getTotal());
     }
 }

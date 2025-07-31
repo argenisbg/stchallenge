@@ -61,7 +61,7 @@ class Cart
         return $this;
     }
 
-    public function getCartSubtotal(): float {
+    public function getSubtotal(): float {
         $total = 0;
 
         foreach ($this->items as $item) {
@@ -71,17 +71,17 @@ class Cart
         return $total;
     }
 
-    public function getCartTax(): float {
-        return $this->getCartSubtotal() * $this->getTaxRate();
+    public function getTax(): float {
+        return $this->getSubtotal() * $this->getTaxRate();
     }
 
-    public function getCartShipping(): float {
+    public function getShipping(): float {
         return ShippingService::getRate(
             $this->shippingAddress->getZipCode()
         );
     }
 
-    public function getCartTotal(): float {
-        return $this->getCartSubtotal() + $this->getCartTax() + $this->getCartShipping();
+    public function getTotal(): float {
+        return $this->getSubtotal() + $this->getTax() + $this->getShipping();
     }
 }

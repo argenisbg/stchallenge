@@ -26,9 +26,9 @@ To install and run this project, follow these steps:
 ### 🚀 Code Execution
 Go to the root folder of the project and use the commands below to execute the solution for each question
 ```
-composer sourcetoad:one
-composer sourcetoad:two
-composer sourcetoad:three
+composer question:one
+composer question:two
+composer question:three
 ```
 ##
 

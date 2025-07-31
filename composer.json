@@ -14,8 +14,8 @@
   },
   "scripts": {
     "test": "./vendor/bin/phpunit tests --testdox",
-    "sourcetoad:one": "@php questionOne.php",
-    "sourcetoad:two": "@php questionTwo.php",
-    "sourcetoad:three": "@php questionThree.php"
+    "question:one": "@php questionOne.php",
+    "question:two": "@php questionTwo.php",
+    "question:three": "@php questionThree.php"
   }
 }
